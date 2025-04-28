@@ -4,7 +4,7 @@ modules:
       "@type": cosmos.app.runtime.v1alpha1.Module
       app_name: HyperlaneApp
       begin_blockers: [distribution, staking]
-      end_blockers: [staking]
+      end_blockers: [staking, bank]
       init_genesis: [auth, bank, distribution, staking, genutil, hyperlane, warp]
       override_store_keys:
         - module_name: auth
