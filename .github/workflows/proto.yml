@@ -3,7 +3,7 @@ name: Protobuf Checks
 on:
   push:
     branches:
-      - main
+      - main, v1.0.x-inj
     paths:
       - "proto/**"
       - "**/**.proto"
