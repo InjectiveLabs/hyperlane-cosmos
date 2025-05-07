@@ -3,7 +3,8 @@ name: Build and Test
 on:
   push:
     branches:
-      - main, v1.0.x-inj
+      - main
+      - v1.0.x-inj
   pull_request:
 
 jobs:
@@ -17,7 +18,9 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22.11'
+          go-version-file: "./go.mod"
+          check-latest: true
+          cache: false
 
       - name: Install dependencies
         run: |
