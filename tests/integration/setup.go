@@ -9,10 +9,10 @@ import (
 
 	"github.com/bcp-innovations/hyperlane-cosmos/tests/simapp"
 	abci "github.com/cometbft/cometbft/abci/types"
+	cmtProto "github.com/cometbft/cometbft/api/cometbft/types/v1"
+	tmproto "github.com/cometbft/cometbft/api/cometbft/types/v1"
+	tmversion "github.com/cometbft/cometbft/api/cometbft/version/v1"
 	"github.com/cometbft/cometbft/crypto/tmhash"
-	cmtProto "github.com/cometbft/cometbft/proto/tendermint/types"
-	tmproto "github.com/cometbft/cometbft/proto/tendermint/types"
-	tmversion "github.com/cometbft/cometbft/proto/tendermint/version"
 	cmtTypes "github.com/cometbft/cometbft/types"
 	"github.com/cometbft/cometbft/version"
 	dbm "github.com/cosmos/cosmos-db"
@@ -75,7 +75,7 @@ func (suite *KeeperTestSuite) setupAppWithTokens(startTime int64, enabledTokens 
 
 	// Initialize the chain
 	if _, err = suite.app.InitChain(
-		&abci.RequestInitChain{
+		&abci.InitChainRequest{
 			ChainId:         "hyperlane-local",
 			Validators:      []abci.ValidatorUpdate{},
 			ConsensusParams: DefaultConsensusParams,

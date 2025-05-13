@@ -62,7 +62,7 @@ func (suite *KeeperTestSuite) commitAfter(t time.Duration) {
 	header := suite.ctx.BlockHeader()
 	header.Time = header.Time.Add(t)
 
-	_, err := suite.app.FinalizeBlock(&abci.RequestFinalizeBlock{
+	_, err := suite.app.FinalizeBlock(&abci.FinalizeBlockRequest{
 		Height: header.Height,
 		Time:   header.Time,
 		DecidedLastCommit: abci.CommitInfo{
